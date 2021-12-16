@@ -9,15 +9,23 @@ const app = new Vue(
                 'image2.jpg',
                 'image3.jpg',
                 'image4.jpg'
-            ]
-        }
-    },
-    methods: {
-        prev: function () {
-            
+            ],
+            counter: 0
         },
-        next: function () {
-            
+        methods: {
+            prev: function () {
+                this.counter -= 1;
+                if (this.counter < 0) {
+                    this.counter = this.images.length - 1;
+                }
+                
+            },
+            next: function () {
+                this.counter += 1;
+                if (this.counter > this.images.length - 1) {
+                    this.counter = 0;
+                }
+            }
         }
     }
 )
