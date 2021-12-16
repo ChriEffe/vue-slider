@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Slider</title>
+</head>
+
+<body>
+    <div id="app" class="container">
+        <div class="slider-wrapper">
+            <div @click='prev' class="prev">
+                <i class="fas fa-angle-left"></i>
+            </div>
+            <div class="images">
+                <img :src="`images/${images[counter]}`" alt="">
+            </div>
+            <div @click='next' class="next">
+                <i class="fas fa-angle-right"></i>
+            </div>
+            <div class="nav">
+                <i @click='circle(index)' v-for='(element, index) in images' :class="(counter == index) ? 'active' : ''"
+                    class="fas fa-circle"></i>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
